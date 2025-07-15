@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // יצירת אובייקט לטיפול בפרמטרים של ה-URL
+  const queryParameters = new URLSearchParams(window.location.search);
+
+  // קריאת הערכים מה-URL. אם הם לא קיימים, נשתמש בערכי ברירת מחדל.
+  const username = queryParameters.get("username") || "משתמש אורח";
+  const score = queryParameters.get("score") || "N/A";
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <header className="App-header">
+        <h1>פרטי לקוח</h1>
+        <div className="userInfo">
+          <p><strong>שם משתמש:</strong> {username}</p>
+          <p><strong>ציון:</strong> {score}</p>
+        </div>
+      </header>
+    </div>
+  );
 }
 
-export default App
+export default App;
