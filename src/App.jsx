@@ -9,8 +9,8 @@ function App() {
   const score = queryParameters.get("score") || "N/A";
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App"> 
+      <header className="App-header">; 
         <h1>פרטי לקוח</h1>
         <div className="userInfo">
           <p><strong>שם משתמש:</strong> {username}</p>
